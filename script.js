@@ -1,10 +1,13 @@
 //create string variable for player
-let playerSelection = prompt('Rock, paper, or scissors?')
+//let playerSelection = prompt('Rock, paper, or scissors?')
+const playerSelection = 'rock';
 //create string variable for computer
-let computerSelection = getComputerChoice()
+const computerSelection = getComputerChoice();
 //randomly return 'Rock', 'Paper', or 'Scissors'
-function getComputerChoice ('Rock', 'Paper', 'Scissors') {
-    return [Math.floor(Math.random() * array.length)];
+function getComputerChoice() {
+    const arr = ['Rock', 'Paper', 'Scissors'];
+    const random = arr[Math.floor(Math.random() * arr.length)];
+    return random;
 }
 //store in computer variable
 //ask user 'Rock, paper, or scissors?
@@ -17,14 +20,14 @@ function getComputerChoice ('Rock', 'Paper', 'Scissors') {
     else output message 'You lose!' + 'computer variable' + ' beats ' 'player variable' +'!' */
 function playRound(playerSelection, computerSelection) {
     if (playerSelection != 'rock' ||  playerSelection != 'paper' || playerSelection != 'scissors') {
-        alert 'Please choose "rock, paper, or scissors"'
+        return 'Please choose "rock, paper, or scissors"'
     }else {
-    if (playerSelection = 'rock' && computerSelection = 'scissors') ||
-        (playerSelection = 'scissors' && computerSelection = 'paper') ||
-        (playerSelection = 'paper' && computerSelection = 'rock') {
-            alert 'You win!' + playerSelection ' beats ' + computerSelection + '!'
+    if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+        (playerSelection == 'scissors' && computerSelection == 'paper') ||
+        (playerSelection == 'paper' && computerSelection == 'rock')) {
+            return 'You win!' + playerSelection + ' beats ' + computerSelection + '!'
         }else {
-        alert 'You lose!' + computerSelection ' beats ' + playerSelection + '!'
+        return 'You lose!' + computerSelection + ' beats ' + playerSelection + '!'
         }
     }
 }
