@@ -18,16 +18,20 @@ function getComputerChoice() {
             ||  'Scissors' && computer picks 'Paper'
         output message 'You win!' + 'player variable' + ' beats ' 'computer variable' +'!'
     else output message 'You lose!' + 'computer variable' + ' beats ' 'player variable' +'!' */
+
+
+const capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection != 'rock' ||  playerSelection != 'paper' || playerSelection != 'scissors') {
+    if (playerSelection.toUpperCase() != 'ROCK' &&  playerSelection.toUpperCase() != 'PAPER' && playerSelection.toUpperCase() != 'SCISSORS') {
         return 'Please choose "rock, paper, or scissors"'
     }else {
-    if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
-        (playerSelection == 'scissors' && computerSelection == 'paper') ||
-        (playerSelection == 'paper' && computerSelection == 'rock')) {
-            return 'You win!' + playerSelection + ' beats ' + computerSelection + '!'
+    if ((playerSelection.toUpperCase() == 'ROCK' && computerSelection.toUpperCase() == 'SCISSORS') ||
+        (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection.toUpperCase() == 'PAPER') ||
+        (playerSelection.toUpperCase() == 'PAPER' && computerSelection.toUpperCase() == 'ROCK')) {
+            return 'You win! ' + capitalized + ' beats ' + computerSelection.toLowerCase() + '!'
         }else {
-        return 'You lose!' + computerSelection + ' beats ' + playerSelection + '!'
+        return 'You lose! ' + computerSelection + ' beats ' + playerSelection + '!'
         }
     }
 }
