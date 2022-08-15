@@ -38,4 +38,20 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
+
+
+//create function game
+//call playRound function inside game function
+/*play 5 round game
+    create integer variable called round
+    each time function is called, add one to round
+    when round > 5 declare winner or loser */
+/*keep score
+    create integer variable called playerScore
+    create integer variable called computerScore
+     */
+
+/*report winner or loser at end
+    if playerScore > computerScore output message 'You win ' + playerscore + ' to ' + computerScore + '!'
+    if playerScore < computerScore output message 'You lose ' + playerscore + ' to ' + computerScore + '!'
 //notes: input is case insensitive
