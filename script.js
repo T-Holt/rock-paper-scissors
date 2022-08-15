@@ -30,8 +30,11 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection.toUpperCase() == 'PAPER') ||
         (playerSelection.toUpperCase() == 'PAPER' && computerSelection.toUpperCase() == 'ROCK')) {
             return 'You win! ' + capitalized + ' beats ' + computerSelection.toLowerCase() + '!'
-        }else {
-        return 'You lose! ' + computerSelection + ' beats ' + playerSelection.toLowerCase + '!'
+        } else if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
+            return 'Tie game!'
+        }
+        else {
+        return 'You lose! ' + computerSelection + ' beats ' + playerSelection.toLowerCase() + '!'
         }
     }
 }
