@@ -2,7 +2,7 @@
 //let playerSelection = prompt('Rock, paper, or scissors?')
 //const playerSelection = 'Rock';
 //create string variable for computer
-const computerSelection = getComputerChoice();
+//const computerSelection = getComputerChoice();
 //const computerSelection = 'scissors';
 //randomly return 'Rock', 'Paper', or 'Scissors'
 function getComputerChoice() {
@@ -24,6 +24,7 @@ function getComputerChoice() {
 //const capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
 
 function playRound() {
+    let computerSelection = getComputerChoice();
     let playerSelection = prompt('Rock, paper, or scissors?')
     const capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
     if (playerSelection.toUpperCase() != 'ROCK' &&  playerSelection.toUpperCase() != 'PAPER' && playerSelection.toUpperCase() != 'SCISSORS') {
@@ -45,8 +46,9 @@ function playRound() {
 function game() {
     for (i=0; i<5; i++) {
        console.log(playRound());
+       }
     }
-}
+
 
     /*
         if (playerSelection > computerSelection) {
