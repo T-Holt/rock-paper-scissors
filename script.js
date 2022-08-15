@@ -1,8 +1,9 @@
 //create string variable for player
 //let playerSelection = prompt('Rock, paper, or scissors?')
-const playerSelection = 'Rock';
+//const playerSelection = 'Rock';
 //create string variable for computer
 const computerSelection = getComputerChoice();
+//const computerSelection = 'scissors';
 //randomly return 'Rock', 'Paper', or 'Scissors'
 function getComputerChoice() {
     const arr = ['Rock', 'Paper', 'Scissors'];
@@ -20,9 +21,11 @@ function getComputerChoice() {
     else output message 'You lose!' + 'computer variable' + ' beats ' 'player variable' +'!' */
 
 
-const capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+//const capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
 
-function playRound(playerSelection, computerSelection) {
+function playRound() {
+    let playerSelection = prompt('Rock, paper, or scissors?')
+    const capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
     if (playerSelection.toUpperCase() != 'ROCK' &&  playerSelection.toUpperCase() != 'PAPER' && playerSelection.toUpperCase() != 'SCISSORS') {
         return 'Please choose "rock, paper, or scissors"'
     }else {
@@ -39,6 +42,24 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function game() {
+    for (i=0; i<5; i++) {
+       console.log(playRound());
+    }
+}
+
+    /*
+        if (playerSelection > computerSelection) {
+            console.log('You win ' + playerscore + ' to ' + computerScore + '!')
+        }
+        else if (computerSelection > playerSelection) {
+            console.log('You lose ' + playerscore + ' to ' + computerScore + '!')
+        }
+        else {
+            console.log('Amazing! A perfect tie!')
+        }
+} */
+
 
 //create function game
 //call playRound function inside game function
@@ -53,5 +74,5 @@ function playRound(playerSelection, computerSelection) {
 
 /*report winner or loser at end
     if playerScore > computerScore output message 'You win ' + playerscore + ' to ' + computerScore + '!'
-    if playerScore < computerScore output message 'You lose ' + playerscore + ' to ' + computerScore + '!'
+    if playerScore < computerScore output message 'You lose ' + playerscore + ' to ' + computerScore + '!' */
 //notes: input is case insensitive
