@@ -1,6 +1,6 @@
 //create string variable for player
 //let playerSelection = prompt('Rock, paper, or scissors?')
-const playerSelection = 'rock';
+const playerSelection = 'Rock';
 //create string variable for computer
 const computerSelection = getComputerChoice();
 //randomly return 'Rock', 'Paper', or 'Scissors'
@@ -31,7 +31,7 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection.toUpperCase() == 'PAPER' && computerSelection.toUpperCase() == 'ROCK')) {
             return 'You win! ' + capitalized + ' beats ' + computerSelection.toLowerCase() + '!'
         }else {
-        return 'You lose! ' + computerSelection + ' beats ' + playerSelection + '!'
+        return 'You lose! ' + computerSelection + ' beats ' + playerSelection.toLowerCase + '!'
         }
     }
 }
