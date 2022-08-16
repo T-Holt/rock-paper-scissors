@@ -43,10 +43,10 @@ function game() {
      for (i=0; i<5; i++) {
         let result = playRound()
         console.log(result)
-    if (result === 'You win! ' + capitalized + ' beats ' + computerSelection.toLowerCase() + '!') {
+    if (result.includes('win') === true) {
         p += 1
     }
-    else if (result === 'You lose! ' + computerSelection + ' beats ' + playerSelection.toLowerCase() + '!') {
+    else if (result.includes('lose') === true) {
         c +=1
     }
     else if (result === 'Please choose "rock, paper, or scissors"') {
