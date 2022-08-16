@@ -47,8 +47,66 @@ function game() {
     for (i=0; i<5; i++) {
        console.log(playRound());
        }
+    if (i === 5) {
+        let playerScore = getPlayerScore()
+        let computerScore = getComputerChoice()
+        console.log(finalScore(playerScore, computerScore))
+    }   
     }
 
+function getPlayerScore() {
+    if ((playerSelection.toUpperCase() == 'ROCK' && computerSelection.toUpperCase() == 'SCISSORS') ||
+    (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection.toUpperCase() == 'PAPER') ||
+    (playerSelection.toUpperCase() == 'PAPER' && computerSelection.toUpperCase() == 'ROCK')) {
+        return playerScore += 1
+    } else if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
+        return playerScore += 1
+    }
+}
+
+function getComputerScore() {
+    if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
+        return computerScore += 1
+    }
+    else if ((computerSelection.toUpperCase() == 'ROCK' && playerSelection.toUpperCase() == 'SCISSORS') ||
+    (computerSelection.toUpperCase() == 'SCISSORS' && playerSelection.toUpperCase() == 'PAPER') ||
+    (computerSelection.toUpperCase() == 'PAPER' && playerSelection.toUpperCase() == 'ROCK')){
+    return computerScore += 1
+    }
+}
+
+function finalScore(playerScore, computerScore) {
+    if (playerScore > computerScore) {
+        console.log('You win! ' + playerScore + ' to ' + computerScore + '!')
+    } else {
+        if (computerScore > playerScore) {
+            console.log('You lose! ' + playerScore + ' to ' + computerScore + '!')
+        } else if (playerScore = computerScore) {
+        console.log('Amazing! A perfect tie!')
+            }
+        }
+    }
+//const playerSelection = 'rock'
+//const computerSelection = 'paper'
+
+function score(playerSelection, computerSelection) {
+    let playerScore = 0
+    let computerScore = 0
+    if (playerSelection.toUpperCase() != 'ROCK' &&  playerSelection.toUpperCase() != 'PAPER' && playerSelection.toUpperCase() != 'SCISSORS') {
+        return 'Please choose "rock, paper, or scissors"'
+    }else {
+        if ((playerSelection.toUpperCase() == 'ROCK' && computerSelection.toUpperCase() == 'SCISSORS') ||
+        (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection.toUpperCase() == 'PAPER') ||
+        (playerSelection.toUpperCase() == 'PAPER' && computerSelection.toUpperCase() == 'ROCK') && round < 5) {
+            return playerScore += 1
+        } else if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
+            return [playerScore += 1, computerScore += 1]
+        }
+        else {
+        return computerScore += 1
+        }
+    }
+}
 
     /*
         if (playerSelection > computerSelection) {
