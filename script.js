@@ -27,12 +27,12 @@ function playRound() {
     if ((playerSelection.toUpperCase() == 'ROCK' && computerSelection.toUpperCase() == 'SCISSORS') ||
         (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection.toUpperCase() == 'PAPER') ||
         (playerSelection.toUpperCase() == 'PAPER' && computerSelection.toUpperCase() == 'ROCK')) {
-            return 'You win!'
+            return 'You win! ' + capitalized + ' beats ' + computerSelection.toLowerCase() + '!'
         } else if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
             return 'Tie game!'
         }
         else {
-        return 'You lose!'
+        return 'You lose! ' + computerSelection + ' beats ' + playerSelection.toLowerCase() + '!'
         }
     }
 }
@@ -43,10 +43,10 @@ function game() {
      for (i=0; i<5; i++) {
         let result = playRound()
         console.log(result)
-    if (result === 'You win!') {
+    if (result === 'You win! ' + capitalized + ' beats ' + computerSelection.toLowerCase() + '!') {
         p += 1
     }
-    else if (result === 'You lose!') {
+    else if (result === 'You lose! ' + computerSelection + ' beats ' + playerSelection.toLowerCase() + '!') {
         c +=1
     }
     else if (result === 'Please choose "rock, paper, or scissors"') {
