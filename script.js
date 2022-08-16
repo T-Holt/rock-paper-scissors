@@ -80,11 +80,6 @@ function playRound() {
     }*/
 
 
-function game() {
-    for (i=0; i<5; i++) {
-       console.log(playRound());
-    }
-}
     /*
     if (result === 'You win!' || result === 'Tie game!') {
         let newPlayerScore = playerScore += 1
@@ -97,10 +92,7 @@ function game() {
     }   
 */
 
-function getPlayerScore() {
-    //for (p = 0; game() === 'You win!' || game() === 'Tie game!'; p++) {
-      //return p
-     //}
+function game() {
      let p = 0
      let c = 0
      for (i=0; i<5; i++) {
@@ -113,10 +105,18 @@ function getPlayerScore() {
         c +=1
     }
     }
-    console.log(p + '!' + c)
+    if (p > c) {
+    console.log('You win! ' + p + ' to ' + c + '!')
+    }
+    else if (c > p) {
+        console.log('You lose! ' + p + ' to ' + c + '!')
+    }
+    else if (p === c) {
+        console.log('Amazing! A perfect tie!')
+    }
 }
 
-function getComputerScore() {
+/*function getComputerScore() {
     for (c = 0; game() === 'You lose' || game() === 'Tie game!'; c++) {
         return c
         }
@@ -125,7 +125,7 @@ function getComputerScore() {
         //c++
        // }
     }
-
+*/
 /* function getPlayerScore() {
     if (playRound() === 'You win!') {
         return pScore += 1
@@ -171,7 +171,7 @@ function getComputerScore() {
     }
 } */
 
-function finalScore() {
+/* function finalScore() {
     let playerScore = getPlayerScore()
     let computerScore = getComputerScore()
     for (i = 0; i < 5; i++) {
@@ -186,10 +186,11 @@ function finalScore() {
         }
     }
     }
+    */
 //const playerSelection = 'rock'
 //const computerSelection = 'paper'
 
-function score(playerSelection, computerSelection) {
+/*function score(playerSelection, computerSelection) {
     let playerScore = 0
     let computerScore = 0
     if (playerSelection.toUpperCase() != 'ROCK' &&  playerSelection.toUpperCase() != 'PAPER' && playerSelection.toUpperCase() != 'SCISSORS') {
@@ -206,7 +207,7 @@ function score(playerSelection, computerSelection) {
         return computerScore += 1
         }
     }
-}
+} */
 
     /*
         if (playerSelection > computerSelection) {
