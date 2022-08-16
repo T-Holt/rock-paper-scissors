@@ -69,45 +69,56 @@ function playRound() {
 //let playerScore = 5
 //let computerScore = 8
 
-function game() {
+/* function game() {
     for (i=0; i<5; i++) {
         let result = playRound()
         console.log(result);
         }
     if (i === 5) {
-        console.log(finalScore(playerScore, computerScore))
+        console.log(finalScore())
     }   
-    }
+    }*/
 
-/* function game() {
+
+function game() {
     for (i=0; i<5; i++) {
-        let result = playRound()
-       console.log(result);
-       for (playerScore = 0; result === 'You win!' || result === 'Tie game!'; playerScore++) {
-       console.log(playerScore)
-       }
-       for (computerScore = 0; result === 'You lose' || result === 'Tie game!'; computerScore++) {
-        console.log(computerScore)
-           }
-        }
-    if (i === 5) {
-        console.log(finalScore(playerScore, computerScore))
+       console.log(playRound());
+    }
+}
+    /*
+    if (result === 'You win!' || result === 'Tie game!') {
+        let newPlayerScore = playerScore += 1
+        return newPlayerScore
+    } else if (result === 'You lose!' || result === 'Tie game!') {
+        let newComputerScore = computerScore += 1
+        return newComputerScore
+    } else if (i === 5)
+        console.log(newPlayerScore)
     }   
-    } */
+*/
 
 function getPlayerScore() {
-    for (playerScore = 0; playRound() === 'You win!' || playRound() === 'Tie game!'; playerScore++) {
-        return playerScore
-        }
-    //let p = 0
-    //if (playRound() === 'You win!' || playRound() === 'Tie game!') {
-   // p++
-    //}
+    //for (p = 0; game() === 'You win!' || game() === 'Tie game!'; p++) {
+      //return p
+     //}
+     let p = 0
+     let c = 0
+     for (i=0; i<5; i++) {
+        let result = playRound()
+        console.log(result)
+    if (result === 'You win!') {
+    p += 1
+    }
+    else if (result === 'You lose!') {
+        c +=1
+    }
+    }
+    console.log(p + '!' + c)
 }
 
 function getComputerScore() {
-    for (computerScore = 0; playRound() === 'You lose' || playRound() === 'Tie game!'; computerScore++) {
-        return computerScore
+    for (c = 0; game() === 'You lose' || game() === 'Tie game!'; c++) {
+        return c
         }
     //let c = 0
     //if (playRound() === 'You lose' || playRound() === 'Tie game!') {
@@ -160,18 +171,20 @@ function getComputerScore() {
     }
 } */
 
-function finalScore(playerScore, computerScore) {
-    //let playerScore = getPlayerScore()
-    //let computerScore = getComputerScore()
-    if (playerScore > computerScore) {
+function finalScore() {
+    let playerScore = getPlayerScore()
+    let computerScore = getComputerScore()
+    for (i = 0; i < 5; i++) {
+    if ((playerScore > computerScore) && (i = 5)) {
         console.log('You win! ' + playerScore + ' to ' + computerScore + '!')
     } else {
-        if (computerScore > playerScore) {
+        if ((computerScore > playerScore) && (i = 5)) {
             console.log('You lose! ' + playerScore + ' to ' + computerScore + '!')
-        } else if (playerScore === computerScore) {
+        } else if ((playerScore === computerScore) && (i = 5)) {
         console.log('Amazing! A perfect tie!')
             }
         }
+    }
     }
 //const playerSelection = 'rock'
 //const computerSelection = 'paper'
@@ -184,7 +197,7 @@ function score(playerSelection, computerSelection) {
     }else {
         if ((playerSelection.toUpperCase() == 'ROCK' && computerSelection.toUpperCase() == 'SCISSORS') ||
         (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection.toUpperCase() == 'PAPER') ||
-        (playerSelection.toUpperCase() == 'PAPER' && computerSelection.toUpperCase() == 'ROCK') && round < 5) {
+        (playerSelection.toUpperCase() == 'PAPER' && computerSelection.toUpperCase() == 'ROCK')) {
             return playerScore += 1
         } else if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
             return [playerScore += 1, computerScore += 1]
