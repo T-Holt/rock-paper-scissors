@@ -4,21 +4,20 @@ function getComputerChoice() {
     return random;
 }
 
-/* function checkNull() {
+function checkNull(playerSelection) {
     if (playerSelection === null) {
         return 'You forfeited!'
-    } else (
-        let capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
-        return capitalized
-    )
-} */
+    } else {
+        return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+    }
+}
 
 function playRound() {
     let computerSelection = getComputerChoice();
     let playerSelection = prompt('Rock, paper, or scissors?')
-    const capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+    let capitalized = checkNull(playerSelection)
     if (playerSelection === null) {
-        return 'You forfeited!'
+        return 'Game over!'
     }
     else if (playerSelection.toUpperCase() != 'ROCK' &&  playerSelection.toUpperCase() != 'PAPER' && playerSelection.toUpperCase() != 'SCISSORS') {
         return 'Please choose "rock, paper, or scissors"'
@@ -51,6 +50,9 @@ function game() {
     }
     else if (result === 'Please choose "rock, paper, or scissors"') {
         i -= 1
+    }
+    else if (result === 'Game over!') {
+        i = 5
     }
     }
     if (p > c) {
