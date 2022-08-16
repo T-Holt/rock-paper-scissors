@@ -23,7 +23,7 @@ function getComputerChoice() {
 
 //const capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
 
-function playRound() {
+/* function playRound() {
     let computerSelection = getComputerChoice();
     let playerSelection = prompt('Rock, paper, or scissors?')
     const capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
@@ -42,19 +42,104 @@ function playRound() {
         }
     }
 }
+*/
+
+function playRound() {
+    let computerSelection = getComputerChoice();
+    let playerSelection = prompt('Rock, paper, or scissors?')
+    const capitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+    if (playerSelection.toUpperCase() != 'ROCK' &&  playerSelection.toUpperCase() != 'PAPER' && playerSelection.toUpperCase() != 'SCISSORS') {
+        return 'Please choose "rock, paper, or scissors"'
+    }else {
+    if ((playerSelection.toUpperCase() == 'ROCK' && computerSelection.toUpperCase() == 'SCISSORS') ||
+        (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection.toUpperCase() == 'PAPER') ||
+        (playerSelection.toUpperCase() == 'PAPER' && computerSelection.toUpperCase() == 'ROCK')) {
+            return 'You win!'
+        } else if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
+            return 'Tie game!'
+        }
+        else {
+        return 'You lose!'
+        }
+    }
+}
+
+//let playerScore = getPlayerScore()
+//let computerScore = getComputerScore()
+//let playerScore = 5
+//let computerScore = 8
 
 function game() {
     for (i=0; i<5; i++) {
-       console.log(playRound());
-       }
+        let result = playRound()
+        console.log(result);
+        }
     if (i === 5) {
-        let playerScore = getPlayerScore()
-        let computerScore = getComputerChoice()
         console.log(finalScore(playerScore, computerScore))
     }   
     }
 
+/* function game() {
+    for (i=0; i<5; i++) {
+        let result = playRound()
+       console.log(result);
+       for (playerScore = 0; result === 'You win!' || result === 'Tie game!'; playerScore++) {
+       console.log(playerScore)
+       }
+       for (computerScore = 0; result === 'You lose' || result === 'Tie game!'; computerScore++) {
+        console.log(computerScore)
+           }
+        }
+    if (i === 5) {
+        console.log(finalScore(playerScore, computerScore))
+    }   
+    } */
+
 function getPlayerScore() {
+    for (playerScore = 0; playRound() === 'You win!' || playRound() === 'Tie game!'; playerScore++) {
+        return playerScore
+        }
+    //let p = 0
+    //if (playRound() === 'You win!' || playRound() === 'Tie game!') {
+   // p++
+    //}
+}
+
+function getComputerScore() {
+    for (computerScore = 0; playRound() === 'You lose' || playRound() === 'Tie game!'; computerScore++) {
+        return computerScore
+        }
+    //let c = 0
+    //if (playRound() === 'You lose' || playRound() === 'Tie game!') {
+        //c++
+       // }
+    }
+
+/* function getPlayerScore() {
+    if (playRound() === 'You win!') {
+        return pScore += 1
+    } else if (playRound() === 'Tie game!') {
+        return pScore += 1
+    }
+    else {
+        return pScore += 0
+    }
+} */
+
+/* function getComputerScore() {
+    let cScore = 0
+    if (playRound() === 'You lose!') {
+        return cScore += 1
+    }
+    else if (playRound() === 'Tie game!'){
+        return cScore += 1
+    }
+    else {
+        return cScore += 0
+    }
+} */
+
+/*function getPlayerScore() {
     if ((playerSelection.toUpperCase() == 'ROCK' && computerSelection.toUpperCase() == 'SCISSORS') ||
     (playerSelection.toUpperCase() == 'SCISSORS' && computerSelection.toUpperCase() == 'PAPER') ||
     (playerSelection.toUpperCase() == 'PAPER' && computerSelection.toUpperCase() == 'ROCK')) {
@@ -62,9 +147,9 @@ function getPlayerScore() {
     } else if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
         return playerScore += 1
     }
-}
+} */
 
-function getComputerScore() {
+/* function getComputerScore() {
     if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
         return computerScore += 1
     }
@@ -73,15 +158,17 @@ function getComputerScore() {
     (computerSelection.toUpperCase() == 'PAPER' && playerSelection.toUpperCase() == 'ROCK')){
     return computerScore += 1
     }
-}
+} */
 
 function finalScore(playerScore, computerScore) {
+    //let playerScore = getPlayerScore()
+    //let computerScore = getComputerScore()
     if (playerScore > computerScore) {
         console.log('You win! ' + playerScore + ' to ' + computerScore + '!')
     } else {
         if (computerScore > playerScore) {
             console.log('You lose! ' + playerScore + ' to ' + computerScore + '!')
-        } else if (playerScore = computerScore) {
+        } else if (playerScore === computerScore) {
         console.log('Amazing! A perfect tie!')
             }
         }
